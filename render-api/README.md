@@ -5,6 +5,7 @@ This service serves the dashboard at `/`, receives ESP32 telemetry from an MQTT 
 Configure these environment variables in the Render service:
 
 - `MQTT_URL`: broker URL reachable from Render, normally `mqtts://...:8883` or `mqtt://...:1883`.
+- `MQTT_USERNAME` and `MQTT_PASSWORD`: optional broker credentials, supplied separately from the URL.
 - `MQTT_TELEMETRY_TOPIC`: the same telemetry topic configured in the ESP32 `secrets.h`.
 - `MQTT_CONTROL_TOPIC`: the same control topic configured in the ESP32 `secrets.h`.
 - `CONTROL_TOKEN`: a long random token required by the dashboard before sending a pump command. The browser asks for it when the user clicks a control; it is not stored in the page source.

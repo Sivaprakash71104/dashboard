@@ -64,11 +64,14 @@ app.post('/api/control', (req, res) => {
 
 let mqttClient;
 if (mqttUrl && telemetryTopic && controlTopic) {
-  mqttClient = mqtt.connect(mqttUrl, {
+  const mqttOptions = {
     clientId: `render-tank-${Math.random().toString(16).slice(2, 10)}`,
     reconnectPeriod: 5000,
     connectTimeout: 15000
-  });
+  };
+  if (process.env.MQTT_USERNAME !== undefined) mqttOptions.username = process.env.MQTT_USERNAME;
+  if (process.env.MQTT_PASSWORD !== undefined) mqttOptions.password = process.env.MQTT_PASSWORD;
+  mqttClient = mqtt.connect(mqttUrl, mqttOptions);
   mqttClient.on('connect', () => {
     mqttConnected = true;
     mqttClient.subscribe(telemetryTopic, { qos: 1 });

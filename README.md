@@ -13,6 +13,7 @@ Use the root `render.yaml` as a Render Blueprint, or configure a Node Web Servic
 Set these values in the Render service's private Environment settings:
 
 - `MQTT_URL`: broker URL, for example `mqtt://user:password@broker.example.com:1883`.
+- `MQTT_USERNAME` and `MQTT_PASSWORD`: optional broker credentials when authentication is configured separately from the URL.
 - `MQTT_TELEMETRY_TOPIC`: topic published by the ESP32.
 - `MQTT_CONTROL_TOPIC`: topic subscribed to by the ESP32.
 - `CONTROL_TOKEN`: private token requested by the dashboard when a pump button is clicked.
