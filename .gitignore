@@ -1,0 +1,8 @@
+.env
+.env.*
+!.env.example
+**/secrets.h
+**/node_modules/
+**/Debug/
+*.elf
+*.bin

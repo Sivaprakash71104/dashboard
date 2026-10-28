@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: smart-water-tank-api
+    runtime: node
+    buildCommand: npm install --prefix render-api
+    startCommand: node render-api/server.js
+    healthCheckPath: /health
+    envVars:
+      - key: MQTT_URL
+        sync: false
+      - key: MQTT_TELEMETRY_TOPIC
+        sync: false
+      - key: MQTT_CONTROL_TOPIC
+        sync: false
+      - key: CONTROL_TOKEN
+        sync: false
+      - key: DASHBOARD_ORIGIN
+        sync: false
